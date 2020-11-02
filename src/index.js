@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import Pet from './components/PetContainer'
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Pet />
   </React.StrictMode>,
   document.getElementById('root')
 );

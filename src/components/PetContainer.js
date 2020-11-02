@@ -1,7 +1,8 @@
 import React,{Component} from "react"
 import ReactDOM from "react-dom"
+import Pet from './Pet'
 
-class pet extends Component{
+class petContainer extends Component{
     constructor(props){
         super(props)
        this.state={
@@ -38,9 +39,9 @@ class pet extends Component{
     }).then(data=> {
         console.log('pets', data);
         this.setState({photos:data});
-        // Log the pet data
+        // Log the petContainer data
 
-        console.log('local pet',this.state.photos)
+        console.log('local petContainer',this.state.photos)
     }
     )
   )    .catch(function (err) {
@@ -50,13 +51,17 @@ class pet extends Component{
   }
 
     render(){
+        if (this.state.photos === undefined || this.state.photos.length==0) {
+            return null;
+        }
         return (
             <div>
-              <h1>hello world!</h1>
-                
+
+                    <Pet animal={this.state.photos} />
 
             </div>
         )
     }
+
 }
-export default pet
+export default petContainer
